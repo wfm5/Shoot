@@ -28,11 +28,14 @@ public class Detection : MonoBehaviour {
 	}
     void DetectItems()
     {
-        nextCheck = Time.time + checkRate;
-
-        if (Physics.Raycast(myTransform.position, myTransform.forward, out hit, range, detectionLayer))
+        if (Time.time > nextCheck)
         {
-            Debug.Log(hit.transform.name+"is an item.");
+            nextCheck = Time.time + checkRate;
+
+            if (Physics.Raycast(myTransform.position, myTransform.forward, out hit, range, detectionLayer))
+            {
+                Debug.Log(hit.transform.name + "is an item.");
+            }
         }
     }
 }

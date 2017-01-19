@@ -26,16 +26,16 @@ public class Shoot : MonoBehaviour {
 	}
     void CheckForInput()
     {
-        if (Input.GetButton("Fire1") && Time.time > nextFire)
+        if (Input.GetButton("Fire2") && Time.time > nextFire)
         {
             Debug.DrawRay(myTransform.position, myTransform.forward*arrayDistmultiplier, Color.green, 3f);
             if (Physics.Raycast(myTransform.position, myTransform.forward*arrayDistmultiplier, out hit, range))
             {
-                Debug.Log(hit.transform.name);
+                //Debug.Log(hit.transform.name);
             }
             else
             {
-                Debug.Log("no hit");
+               // Debug.Log("no hit");
             }
             nextFire = Time.time + fireRate;            
         } 

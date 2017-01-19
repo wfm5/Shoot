@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - Friendly
+  - Item
+  - Fire
   layers:
   - Default
   - TransparentFX
@@ -21,7 +24,7 @@ TagManager:
   - Player
   - grenade
   - Enemy
-  - 
+  - Friendly
   - 
   - 
   - 

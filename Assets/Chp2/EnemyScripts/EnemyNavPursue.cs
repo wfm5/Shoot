@@ -4,7 +4,7 @@ namespace Chp2{
 	public class EnemyNavPursue : MonoBehaviour {
 
         private EnemyMaster enemyMaster;
-        private NavMeshAgent myNavMeshAgent;
+        private UnityEngine.AI.NavMeshAgent myNavMeshAgent;
         private float checkRate;
         private float nextCheck;
 
@@ -28,9 +28,9 @@ namespace Chp2{
 		void SetInit()
 		{
             enemyMaster = GetComponent<EnemyMaster>();
-            if (GetComponent<NavMeshAgent>() != null)
+            if (GetComponent<UnityEngine.AI.NavMeshAgent>() != null)
             {
-                myNavMeshAgent = GetComponent<NavMeshAgent>();
+                myNavMeshAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
             }
             checkRate = Random.Range(0.1f, 0.2f);
 		}

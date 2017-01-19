@@ -3,8 +3,9 @@ using System.Collections;
 
 public class Enemy_Chase : MonoBehaviour {
 
+    
     private Transform myTransform;
-    private NavMeshAgent myNavMeshAgent;
+    private UnityEngine.AI.NavMeshAgent myNavMeshAgent;
     public LayerMask detectionLayer;
     private Collider[] hitColliders;
     private float checkRate;
@@ -24,7 +25,7 @@ public class Enemy_Chase : MonoBehaviour {
     void SetInit()
     {
         myTransform = transform;
-        myNavMeshAgent = GetComponent <NavMeshAgent>();
+        myNavMeshAgent = GetComponent <UnityEngine.AI.NavMeshAgent>();
         checkRate = Random.Range(0.8f,1.2f);
 
     }

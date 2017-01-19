@@ -32,7 +32,7 @@ namespace Chp2{
 		
 		// Update is called once per frame
 		void Update () {
-            Debug.Log(playerhealth);
+            //Debug.Log(playerhealth);
 		}
 		void SetInit()
 		{

@@ -4,12 +4,12 @@ namespace Chp2{
 	public class EnemyNavWander : MonoBehaviour {
 
         private EnemyMaster enemyMaster;
-        private NavMeshAgent myNavMeshAgent;
+        private UnityEngine.AI.NavMeshAgent myNavMeshAgent;
         private float checkRate;
         private float nextCheck;
         private float wanderRange = 10;
         private Transform myTransform;
-        private NavMeshHit navHit;
+        private UnityEngine.AI.NavMeshHit navHit;
         private Vector3 wanderTarget;
 
 		void OnEnable()
@@ -37,9 +37,9 @@ namespace Chp2{
 		void SetInit()
 		{
 			enemyMaster = GetComponent<EnemyMaster>();
-            if (GetComponent<NavMeshAgent>() != null)
+            if (GetComponent<UnityEngine.AI.NavMeshAgent>() != null)
             {
-                myNavMeshAgent = GetComponent<NavMeshAgent>();
+                myNavMeshAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
             }
             checkRate = Random.Range(0.3f, 0.4f);
             myTransform = transform;
@@ -59,7 +59,7 @@ namespace Chp2{
         bool RandomWanderTarget(Vector3 centre, float range, out Vector3 result)
         {
             Vector3 randomPoint = centre + Random.insideUnitSphere * wanderRange;
-            if(NavMesh.SamplePosition(randomPoint, out navHit, 1.0f, NavMesh.AllAreas))
+            if(UnityEngine.AI.NavMesh.SamplePosition(randomPoint, out navHit, 1.0f, UnityEngine.AI.NavMesh.AllAreas))
             {
                 result = navHit.position;
                 return true;

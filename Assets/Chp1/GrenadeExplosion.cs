@@ -12,9 +12,9 @@ public class GrenadeExplosion : MonoBehaviour {
 	
     void OnCollisionEnter(Collision col)
     {
-        Debug.Log(col.gameObject.name);
+       // Debug.Log(col.gameObject.name);
         ExplosionWork(col.contacts[0].point);
-        Destroy(gameObject);
+        //Destroy(gameObject);
         
     }
     void ExplosionWork(Vector3 explosionPoint)
@@ -22,18 +22,18 @@ public class GrenadeExplosion : MonoBehaviour {
         hitColliders = Physics.OverlapSphere(explosionPoint, blastRadius, explosionLayers);
         foreach (Collider hitCol in hitColliders)
         {
-            if(hitCol.GetComponent<NavMeshAgent>()!=null)
+            if(hitCol.GetComponent<UnityEngine.AI.NavMeshAgent>()!=null)
             {
-                hitCol.GetComponent<NavMeshAgent>().enabled = false;
+                hitCol.GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false;
             }
             if (hitCol.GetComponent<Rigidbody>() != null)
             {
-                hitCol.GetComponent<Rigidbody>().isKinematic = false;
+               // hitCol.GetComponent<Rigidbody>().isKinematic = false;
                 hitCol.GetComponent<Rigidbody>().AddExplosionForce(explosionPower, explosionPoint, blastRadius, 1f, ForceMode.Impulse);
             }
             if(hitCol.CompareTag("Enemy"))
             {
-                Destroy(hitCol.gameObject, destroyTime);
+                //Destroy(hitCol.gameObject, destroyTime);
             }
         }
     }

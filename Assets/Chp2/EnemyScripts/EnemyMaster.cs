@@ -15,8 +15,11 @@ namespace Chp2{
         public event GeneralEventHandler EventEnemyReachedNavTarget;
         public event GeneralEventHandler EventEnemyAttack;
         public event GeneralEventHandler EventEnemyLossTarget;
+        public event GeneralEventHandler EventEnemyHealthLow;
+        public event GeneralEventHandler EventEnemyHealthRecover;
 
         public delegate void HealthEventHandler(int health);
+        public event HealthEventHandler EventEnemyIncreaseHealth;        
         public event HealthEventHandler EventEnemyDeductHealth;
 
         public delegate void NavTargetEventHandler(Transform targetTransform);
@@ -27,6 +30,27 @@ namespace Chp2{
             if (EventEnemyDeductHealth != null)
             {
                 EventEnemyDeductHealth(health);
+            }
+        }
+        public void CallEventEnemyIncreaseHealth(int health)
+        {
+            if (EventEnemyIncreaseHealth != null)
+            {
+                EventEnemyIncreaseHealth(health);
+            }
+        }
+        public void CallEventEnemyHealthLow()
+        {
+            if (EventEnemyHealthLow != null)
+            {
+                EventEnemyHealthLow();
+            }
+        }
+        public void CallEventEnemyHealthRecover()
+        {
+            if (EventEnemyHealthRecover != null)
+            {
+                EventEnemyHealthRecover();
             }
         }
         public void CallEventEnemySetNavTarget(Transform targTransform)
